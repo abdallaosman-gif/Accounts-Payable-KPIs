@@ -67,7 +67,7 @@ The dashboard helps:
 - **On-Time Payments** decreased consistently over the quarter, going below target in March. Recommendation: to explore process simplification, so processing times keep up with increasing volumes.   
 - **Average Days to Pay** trended upward, reflecting efficiency drops.  
 - **Rejected Payments** Overall performance above 1% in Q1, with insufficient funding the main contributor. Collaboration with Treasury is recommended, to discover root causes.   
-- Monthly analysis highlights increasing utilization of RTGS (payment method U), same-day payments. It's recommended to analyse further, if those vendors could be paid using more cost-effective methods, B (book payments) or N (ACH).  
+- **Monthly analysis** highlights increasing utilization of RTGS (payment method U), same-day payments. It's recommended to analyse further, if those vendors could be paid using more cost-effective methods, B (book payments) or N (ACH).  
 
 ---
 
