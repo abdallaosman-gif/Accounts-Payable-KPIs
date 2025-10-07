@@ -65,22 +65,15 @@ The following calculated columns were created in the `Accounts_Payable_Sample` t
 
 | **Column Name** | **DAX Formula** | **Purpose / Description** |
 |------------------|------------------|-----------------------------|
-| **Days To Pay** | `VAR FI_Date = 'Accounts_Payable_Sample'[Invoice Date]  
-VAR Pay_Date = 'Accounts_Payable_Sample'[Payment Date]  
-RETURN DATEDIFF(FI_Date, Pay_Date, DAY)` | Calculates the number of days between invoice and payment date. |
-| **Days To Reprocess** | `VAR ReversalDate = 'Accounts_Payable_Sample'[Rejection Date]  
-VAR SuccessDate = 'Accounts_Payable_Sample'[Reprocessed Date]  
-RETURN DATEDIFF(ReversalDate, SuccessDate, DAY)` | Measures the duration between a rejected payment and its successful reprocessing. |
-| **Month** | `FORMAT('Accounts_Payable_Sample'[Payment Date], "MMMM")` | Extracts the month name from the payment date for reporting and slicers. |
-| **Month Number** | `MONTH('Accounts_Payable_Sample'[Payment Date])` | Numeric representation of the payment month for chronological sorting. |
-| **Months** | `FORMAT('Accounts_Payable_Sample'[Payment Date], "MMM YYYY")` | Combined month-year label for slicers and timeline visuals. |
-| **On Time Payment** | `IF('Accounts_Payable_Sample'[Days To Pay] <= 'Accounts_Payable_Sample'[Due Days], 1, 0)` | Flags payments completed on or before the due date. |
-| **Payment Method Grouped** | `IF(  
-    'Accounts_Payable_Sample'[Payment Method] IN {"Bank Transfer", "Wire"}, "Electronic",  
-    IF('Accounts_Payable_Sample'[Payment Method] IN {"Cheque", "Cash"}, "Manual",  
-    "Other")  
-)` | Groups different payment methods into simplified reporting categories. |
-| **Reprocessed On Time** | `IF('Accounts_Payable_Sample'[Days To Reprocess] <= 'Accounts_Payable_Sample'[Target Reprocess Days], 1, 0)` | Flags reprocessed payments that were completed within the target timeframe. |
+| **Days To Pay** | `Days To Pay = VAR FI_Date = 'Accounts_Payable_Sample'[FI Document Entry Date] VAR Pay_Date = 'Accounts_Payable_Sample'[Payment Document Entry Date] VAR WeekdaysCount = COUNTROWS( FILTER( CALENDAR(FI_Date, Pay_Date), WEEKDAY([Date], 2) <= 5 ) ) - 1 RETURN MAX(1, WeekdaysCount)` | Calculates the number of days between invoice date and payment date. |
+| **Days To Reprocess** | `Days To Reprocess = VAR ReversalDate = 'Accounts_Payable_Sample'[Clearing Document Entry Date] VAR PaymentDate = 'Accounts_Payable_Sample'[Payment Document Entry Date] VAR WeekdaysCount = COUNTROWS( FILTER( CALENDAR(PaymentDate, ReversalDate), WEEKDAY([Date], 2) <= 5 ) ) - 1 RETURN MAX(1, WeekdaysCount)` | Measures the time between a rejected payment and its successful reversal. |
+| **Month** | `Month = FORMAT('Accounts_Payable_Sample'[Payment Document Entry Date], "MMMM")` | Extracts the month name from the payment date for reporting purposes. |
+| **Month Number** | `Month Number = MONTH('Accounts_Payable_Sample'[Payment Document Entry Date])` | Numeric representation of the payment month for sorting purposes. |
+| **Months** | `Months = FORMAT('Accounts_Payable_Sample'[Payment Document Entry Date], "MM - MMMM")` | Alternative month column for sorting in slicers with month name |
+| **On Time Payment** | `On Time Payment = IF('Accounts_Payable_Sample'[Days To Pay] = 1,"On Time","Late")` | Flag column indicating if payment was made on or before the SLA date. |
+| **Payment Method Grouped** | `Payment Method Grouped = IF('Accounts_Payable_Sample'[Payment Method] IN {"B", "N", "U"}, 'Accounts_Payable_Sample'[Payment Method], "Invalid")` | Categorizes payments based on method (e.g., book, ACH). |
+| **Reprocessed On Time** | `Reprocessed On Time = IF('Accounts_Payable_Sample'[Payment Status] = "Rejected by Bank", IF('Accounts_Payable_Sample'[Days To Reprocess] <= 3, "On Time", "Late"), BLANK())` | Indicates whether rejected payments were reprocessed on time. |
+
 
 
 ---
