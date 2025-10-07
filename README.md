@@ -8,7 +8,7 @@ It enables finance teams and management to monitor supplier payment health, asse
 ## 📈 Dashboard Pages
 
 ### 🧾 Page 1 – Q1 2025 Payments Overview
-![Payments Overview Dashboard](assets/AP_KPIs_Page1.png)
+![Payments Overview Dashboard](AP_KPIs_Page1.png)
 
 **Highlights:**
 - KPIs summarizing **Total Payments**, **Average Days to Pay**, and **On-Time Payment Ratio**.  
@@ -18,7 +18,7 @@ It enables finance teams and management to monitor supplier payment health, asse
 ---
 
 ### 📅 Page 2 – Monthly Performance Dashboard
-![Monthly Performance Dashboard](assets/AP_KPIs_Page2.png)
+![Monthly Performance Dashboard](AP_KPIs_Page2.png)
 
 **Highlights:**
 - Monthly trend analysis of payments processed.  
