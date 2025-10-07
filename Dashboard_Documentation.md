@@ -22,14 +22,14 @@ The goal is to improve supplier relationships and operational cash flow visibili
 
 | Source | Description | Format | Refresh Frequency |
 |--------|--------------|---------|-------------------|
-| `Accounts_Payable_Sample.csv` | Consolidated AP transactions for Q1 2025 | CSV | Static snapshot (quarterly) |
+| `Accounts_Payable_Sample.csv` | Consolidated AP transactions for 01.01 - 08.04 2025 | CSV | Static snapshot (quarterly) |
 
 **Data Source Location:** `/data/Accounts_Payable_Sample.csv`  
 
 **Extraction Rules Summary:**
 - Data is derived from AP payment systems and standardized to include payment date, due date, amount, payment status, and reprocessing info.
 - Each row represents a unique **payment transaction**.
-- The snapshot captures all Q1 2025 transactions (Jan–Mar).
+- The snapshot captures all payments between Jan 1 - Apr 8, 2025.
 
 ---
 
