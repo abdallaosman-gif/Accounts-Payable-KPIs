@@ -36,7 +36,7 @@ To provide a **data-driven perspective** on the efficiency and reliability of th
 The dashboard helps:
 - Identify delays or inefficiencies in payment processing.  
 - Track compliance with on-time payment targets.  
-- Highlight recurring issues, such as rejection or reprocessing causes.  
+- Highlight recurring issues, such as rejection causes 
 
 ---
 
@@ -46,9 +46,9 @@ The dashboard helps:
 |-----|--------------|
 | **Total Volume** | Total number of processed AP transactions |
 | **Avg Days to Pay** | Average time taken to process and clear payments |
-| **On-Time Payments Ratio** | Share of payments completed on or before due date |
-| **Rejected Payments Ratio** | Percentage of payments rejected due to errors |
-| **Reprocessed On-Time Ratio** | Proportion of reprocessed payments completed on time |
+| **On-Time Payments Ratio** | Share of payments completed on or before SLA date (1 business day after invoice entry, target 90%) |
+| **Rejected Payments Ratio** | Percentage of payments rejected due to errors (target 1%) |
+| **Reprocessed On-Time Ratio** | Proportion of reprocessed payments completed on time (3 business days, target 95% |
 
 ---
 
@@ -56,8 +56,7 @@ The dashboard helps:
 
 - **Microsoft Power BI** – Data modeling, visualization, and report design  
 - **Excel / CSV** – Data preparation and import  
-- **DAX** – Custom measures for KPIs  
-- **Bravo for Power BI** – DAX formatting and export  
+- **DAX** – Custom measures for KPIs   
 - **GitHub** – Version control and portfolio sharing  
 
 ---
@@ -65,10 +64,10 @@ The dashboard helps:
 
 ## 🧠 Summary & Insights
 
-- **On-Time Payments** decreased consistently over the quarter, going below target in March.  
-- **Average Days to Pay** trended downward, reflecting efficiency gains.  
-- **Rejected Payments** remained within acceptable thresholds.  
-- Monthly analysis highlights early-quarter backlogs that were resolved by March.  
+- **On-Time Payments** decreased consistently over the quarter, going below target in March. Recommendation: to explore process simplification, so processing times keep up with increasing volumes.   
+- **Average Days to Pay** trended upward, reflecting efficiency drops.  
+- **Rejected Payments** increased to above 1% in Q1, with insufficient funding being the main contributing factor. Collaboration with Treasury is recommended, to discover root causes.   
+- Monthly analysis highlights increasing utilization of RTGS (payment method U), same-day payments. It's recommended to analyse further, if those vendors could be paid using more cost-effective methods, B (book payments) or N (ACH).  
 
 ---
 
