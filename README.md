@@ -14,6 +14,7 @@ It enables finance teams and management to monitor supplier payment health, asse
 - KPIs summarizing **Total Payments**, **Average Days to Pay**, and **On-Time Payment Ratio**.  
 - Quick view of overall supplier payment trends and performance targets.  
 - Card visuals and comparison indicators for fast insight into quarter-level results.
+- Visual correlation between on-time payment rates and overall volume.  
 
 ---
 
@@ -24,7 +25,7 @@ It enables finance teams and management to monitor supplier payment health, asse
 - Monthly trend analysis of payments processed.  
 - **Interactive slicer** allowing users to filter by specific months.  
 - Breakdown of **Rejected** and **Reprocessed** payments over time.  
-- Visual correlation between on-time payment rates and overall volume.
+
 
 💡 *Tip:* Click on either image in GitHub to open the full-resolution dashboard page.
 
